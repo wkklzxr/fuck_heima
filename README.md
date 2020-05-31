@@ -21,28 +21,24 @@ from scrapy import Selector
 browser = webdriver.Chrome()
 
 browser.get('http://www.itheima.com/')
-
-html = browser.page_source
-
-selector = Selector(text=html)
 time.sleep(3)
 
-contact_button = browser.find_element_by_xpath('/html/body/div[1]/div[4]/ul/li[1]/a')
+contact_button = browser.find_element_by_xpath('/html/body/div[1]/div[4]/ul/li[1]/a')  # 找到聊天按钮
 
 contact_button.click()
 
 time.sleep(3)
 
-browser.switch_to.frame('chatIframe')
+browser.switch_to.frame('chatIframe')  # 切换iframe
 
-input_element = browser.find_element_by_xpath('//*[@id="chatbox_input"]')
+input_element = browser.find_element_by_xpath('//*[@id="chatbox_input"]')  # 找到输入的文本框
 
 time.sleep(3)
 while True:
-    input_element.send_keys('骗子机构！')
+    input_element.send_keys('骗子机构！')  # 口吐芬芳
 
-    input_element.send_keys('\n')
+    input_element.send_keys('\n')  # 回车
 
-    time.sleep(2)
+    time.sleep(2)  # 等待继续发
 
 ```
